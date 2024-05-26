@@ -91,3 +91,9 @@ jobs:
       uses: github/codeql-action/analyze@v3
       with:
         category: "/language:${{matrix.language}}"
+        
+    - name: Upload CodeQL Databases
+      uses: actions/upload-artifact@v4.3.1
+      with:
+        name: codeql-database-${{ matrix.language }}
+        path: /home/runner/work/_temp/codeql_databases/cpp.zip
